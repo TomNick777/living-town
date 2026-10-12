@@ -1,0 +1,66 @@
+/* TownStage：默认小镇界面只保留「小镇时间」条。
+   独立样式文件，不与进行中的 showcase.css / immersive.css 工作耦合。
+   视觉语言取自青川町：米白 #fbfcf5、灰绿 #7d8676、青蓝 #405f62、细边框。 */
+
+.town-stage { display:flex; flex-direction:column; align-items:center; gap:8px; margin:10px 0 4px; position:relative; }
+
+/* 弹层向上浮出：时间条贴着视口底部，向下展开会被折叠线截掉。 */
+.town-strip-zone { position:relative; display:flex; justify-content:center; max-width:100%; }
+.town-strip-overlay { position:absolute; bottom:calc(100% + 8px); left:50%; transform:translateX(-50%); display:flex; flex-direction:column; align-items:stretch; gap:8px; z-index:6; pointer-events:none; }
+.town-strip-overlay > * { pointer-events:auto; }
+
+.town-time-strip { display:flex; align-items:center; gap:10px; background:#fbfcf5ee; backdrop-filter:blur(12px); border:1px solid #ffffff; border-radius:999px; padding:5px 8px 5px 5px; box-shadow:0 3px 12px #3d60621a; max-width:100%; }
+.town-strip-play { border:0; background:#486d73; color:#fffdf2; width:32px; height:32px; border-radius:50%; font-size:12px; line-height:1; flex-shrink:0; }
+.town-strip-play:hover { background:#3d5f65; }
+.town-strip-daynav { display:flex; align-items:center; gap:2px; }
+.town-strip-daynav button { border:0; background:transparent; color:#516969; width:24px; height:26px; border-radius:6px; font-size:14px; }
+.town-strip-daynav button:hover:not(:disabled) { background:#e0eae5; }
+.town-strip-date { font-size:12px; color:#405f62; letter-spacing:.5px; white-space:nowrap; font-variant-numeric:tabular-nums; padding:0 2px; cursor:default; }
+.town-strip-progress { width:72px; height:3px; border-radius:2px; background:#dfe7df; overflow:hidden; flex-shrink:0; }
+.town-strip-progress i { display:block; height:100%; background:#6e9983; border-radius:2px; }
+.town-strip-status { font-size:11px; color:#7d8676; padding:6px 10px; }
+.town-strip-status.is-error { color:#8a5b39; }
+.town-strip-inline { border:0; background:none; font-size:11px; color:#486d73; text-decoration:underline; padding:0; }
+.town-strip-side { display:flex; align-items:center; gap:4px; border-left:1px solid #e3e9e0; padding-left:8px; margin-left:2px; }
+.town-coverage-chip { border:1px solid #dfe5d8; background:#f7f9f2; border-radius:999px; font-size:10px; color:#5d7466; padding:4px 9px; white-space:nowrap; font-variant-numeric:tabular-nums; }
+.town-coverage-chip:hover, .town-console-toggle:hover { background:#e9efe2; }
+.town-console-toggle { border:0; background:transparent; border-radius:6px; font-size:11px; color:#69818a; padding:5px 8px; white-space:nowrap; }
+
+/* coverage 渐进披露：默认只是一枚 chip，点开才有诚实性明细。 */
+.town-coverage-pop { width:min(360px, 92vw); background:#fffefa; border:1px solid #dfe5d8; border-radius:12px; padding:12px 14px; box-shadow:0 6px 22px #3d606214; }
+.town-coverage-pop-head { margin:0; display:flex; flex-direction:column; gap:3px; }
+.town-coverage-pop-head strong { font-size:12px; color:#3e5a3a; font-weight:600; }
+.town-coverage-pop-head span { font-size:11px; color:#7d8676; font-variant-numeric:tabular-nums; }
+.town-coverage-pop-note { margin:7px 0 0; font-size:10.5px; line-height:1.7; color:#9ba191; }
+.town-coverage-pop-rows { list-style:none; margin:8px 0 0; padding:8px 0 0; border-top:1px dashed #e2e8da; display:grid; gap:4px; }
+.town-coverage-pop-rows li { display:flex; justify-content:space-between; gap:12px; font-size:11px; color:#55624f; }
+.town-coverage-pop-rows strong { font-weight:500; color:#7d8676; font-variant-numeric:tabular-nums; }
+
+/* 收入 toast：与 ReplayDeck 同款语义，落在时间条上方。 */
+.town-stage-toast { position:absolute; bottom:calc(100% + 6px); right:0; z-index:5; background:#fff8e6; border:1px solid #e8c98a; color:#7a5a1e; border-radius:10px; padding:7px 13px; font-size:12px; font-weight:700; box-shadow:0 6px 18px #a078282e; }
+.town-stage-toast small { display:block; font-weight:400; color:#a3874f; font-size:10px; margin-top:2px; }
+
+/* 建筑轻量档案（点建筑才出现）。 */
+.town-stage-inspector { width:min(400px, 94vw); background:#fffefa; border:1px solid var(--border, #e4e6dd); border-radius:12px; padding:12px 14px; box-shadow:0 6px 22px #3d606214; }
+.town-stage-inspector-head { display:flex; align-items:flex-start; gap:10px; }
+.town-stage-inspector-head p { margin:0; font-size:9px; letter-spacing:1.5px; color:#969d90; }
+.town-stage-inspector-head h3 { margin:2px 0 0; font-size:14px; font-weight:600; color:#315b60; }
+.town-stage-inspector-head h3 small { display:block; font-size:10px; font-weight:400; color:#7d8676; margin-top:3px; }
+.town-stage-inspector-head button { margin-left:auto; border:0; background:none; font-size:16px; color:#8a9380; padding:2px 6px; }
+.town-stage-inspector-state { margin:6px 0 0; font-size:11px; color:#7d8676; }
+.town-stage-inspector ul { list-style:none; margin:8px 0 0; padding:0; display:grid; gap:2px; }
+.town-stage-inspector li button { width:100%; display:flex; gap:10px; align-items:baseline; border:0; background:none; padding:5px 6px; border-radius:7px; font:inherit; font-size:11.5px; text-align:left; }
+.town-stage-inspector li button:hover { background:#f1f4ea; }
+.town-stage-inspector li span { color:#969d90; font-variant-numeric:tabular-nums; }
+.town-stage-inspector li strong { font-weight:500; color:#414d43; flex:1; min-width:0; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
+.town-stage-inspector li em { font-style:normal; color:#5d7466; font-variant-numeric:tabular-nums; }
+.town-stage-inspector-more { margin-top:8px; border:0; background:none; padding:2px 0; font-size:10.5px; color:#486d73; }
+
+.town-stage .replay-deck { align-self:stretch; }
+
+@media(max-width:760px) {
+  .town-strip-date { font-size:11px; }
+  .town-strip-progress { display:none; }
+  .town-console-toggle { padding:5px 6px; }
+  .town-stage-toast { right:auto; left:0; }
+}

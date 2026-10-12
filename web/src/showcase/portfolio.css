@@ -1,0 +1,18 @@
+.data-source-banner { margin:14px 0 0; padding:9px 13px; color:#41696a; background:#e6efeb; border:1px solid #d5e3dc; border-radius:8px; font-size:11px; line-height:1.6; }
+.project-note { display:grid; grid-template-columns:1fr 1fr; gap:48px; border-top:1px solid #dce5df; margin-top:42px; padding:36px 0 14px; }
+.project-note h2 { font-size:25px; font-weight:500; margin:0 0 14px; color:#31565e; }
+.project-note h3 { font-size:15px; font-weight:500; margin:6px 0 14px; }
+.project-note p { max-width:640px; color:#6d8079; font-size:12px; line-height:1.95; }
+.project-note a { display:inline-block; margin-top:4px; color:#31565e; text-decoration:underline; text-underline-offset:4px; font-size:12px; }
+.showcase-footer { display:flex; justify-content:space-between; gap:16px; flex-wrap:wrap; }
+@media(max-width:760px) {
+  .project-note { grid-template-columns:1fr; gap:12px; margin-top:28px; padding-top:24px; }
+  .data-source-banner { font-size:10px; margin-top:10px; }
+  .showcase .town-sidebar { flex-wrap:wrap; height:auto; min-height:80px; padding:14px 12px 0; gap:8px; }
+  .showcase .town-sidebar nav { height:34px; gap:24px; }
+  .showcase .showcase-top-row { flex-direction:column; align-items:stretch; gap:12px; }
+  .showcase .showcase-top-month { justify-content:flex-start; flex-wrap:wrap; margin:0; }
+  .showcase .showcase-top h1 { font-size:19px; line-height:1.5; }
+  .review-table { min-width:820px; }
+  .review-table-wrap { max-width:100%; }
+}

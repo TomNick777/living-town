@@ -1,0 +1,35 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "life-energy"
+version = "0.1.0"
+description = "Local-first personal cash-flow ledger with a Life Energy interpretation layer"
+requires-python = ">=3.11"
+dependencies = [
+    "openpyxl>=3.1",
+    # 真实银行账单格式适配（2025-01~2026-08 实测导入）：
+    # 银行流水 PDF 文本/表格抽取；老式二进制 .xls（建行）；加密 xlsx（广发储蓄卡）。
+    "pdfplumber>=0.11",
+    "xlrd>=2.0",
+    "msoffcrypto-tool>=6.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8.0",
+]
+
+[project.scripts]
+life-energy = "life_energy.cli.main:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+life_energy = ["db/migrations/*.sql", "living_town/world/contracts/*.json"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q"

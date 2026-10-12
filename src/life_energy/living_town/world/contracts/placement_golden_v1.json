@@ -1,0 +1,99 @@
+{
+  "golden_version": "living-town-placement-golden-v1",
+  "cases": [
+    {
+      "name": "create_on_free_ground_ok",
+      "candidate": { "asset_id": "cafe", "grid_x": 5, "grid_y": 1 },
+      "expected": "OK"
+    },
+    {
+      "name": "create_on_static_tree_collision",
+      "candidate": { "asset_id": "residential_a", "grid_x": 0, "grid_y": 0 },
+      "expected": "COLLISION"
+    },
+    {
+      "name": "create_on_variable_lot_collision",
+      "candidate": { "asset_id": "cafe", "grid_x": 6, "grid_y": 0 },
+      "expected": "COLLISION"
+    },
+    {
+      "name": "create_on_external_anchor_collision",
+      "candidate": { "asset_id": "cafe", "grid_x": 14, "grid_y": 6 },
+      "expected": "COLLISION"
+    },
+    {
+      "name": "create_on_active_building_collision",
+      "candidate": { "asset_id": "cafe", "grid_x": 4, "grid_y": 3 },
+      "active_buildings": [
+        { "building_id": "b-residential", "asset_id": "residential_b", "grid_x": 4, "grid_y": 3 }
+      ],
+      "expected": "COLLISION"
+    },
+    {
+      "name": "create_partially_out_of_bounds",
+      "candidate": { "asset_id": "residential_a", "grid_x": 15, "grid_y": 9 },
+      "expected": "OUT_OF_BOUNDS"
+    },
+    {
+      "name": "create_unknown_asset",
+      "candidate": { "asset_id": "skyscraper", "grid_x": 5, "grid_y": 1 },
+      "expected": "UNKNOWN_ASSET"
+    },
+    {
+      "name": "create_non_placeable_asset",
+      "candidate": { "asset_id": "tree", "grid_x": 5, "grid_y": 1 },
+      "expected": "ASSET_NOT_PLACEABLE"
+    },
+    {
+      "name": "create_non_integer_coordinate",
+      "candidate": { "asset_id": "cafe", "grid_x": 1.5, "grid_y": 1 },
+      "expected": "INVALID_COORDINATE"
+    },
+    {
+      "name": "create_on_flat_water_ok",
+      "candidate": { "asset_id": "cafe", "grid_x": 12, "grid_y": 0 },
+      "expected": "OK"
+    },
+    {
+      "name": "create_at_max_corner_ok",
+      "candidate": { "asset_id": "cafe", "grid_x": 15, "grid_y": 9 },
+      "expected": "OK"
+    },
+    {
+      "name": "move_overlapping_own_current_cells_ok",
+      "candidate": { "asset_id": "residential_a", "grid_x": 1, "grid_y": 2 },
+      "active_buildings": [
+        { "building_id": "self", "asset_id": "residential_a", "grid_x": 1, "grid_y": 2 }
+      ],
+      "exclude_building_id": "self",
+      "expected": "OK"
+    },
+    {
+      "name": "move_onto_other_active_building_collision",
+      "candidate": { "asset_id": "residential_a", "grid_x": 1, "grid_y": 2 },
+      "active_buildings": [
+        { "building_id": "self", "asset_id": "cafe", "grid_x": 0, "grid_y": 0 },
+        { "building_id": "other", "asset_id": "residential_b", "grid_x": 1, "grid_y": 2 }
+      ],
+      "exclude_building_id": "self",
+      "expected": "COLLISION"
+    },
+    {
+      "name": "change_asset_footprint_grows_into_static_collision",
+      "candidate": { "asset_id": "residential_a", "grid_x": 11, "grid_y": 3 },
+      "active_buildings": [
+        { "building_id": "cafe-instance", "asset_id": "cafe", "grid_x": 11, "grid_y": 3 }
+      ],
+      "exclude_building_id": "cafe-instance",
+      "expected": "COLLISION"
+    },
+    {
+      "name": "demolished_building_does_not_block",
+      "candidate": { "asset_id": "residential_a", "grid_x": 4, "grid_y": 3 },
+      "demolished_buildings": [
+        { "building_id": "ghost", "asset_id": "residential_b", "grid_x": 4, "grid_y": 3 }
+      ],
+      "expected": "OK"
+    }
+  ]
+}

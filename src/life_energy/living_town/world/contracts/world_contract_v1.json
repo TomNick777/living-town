@@ -1,0 +1,94 @@
+{
+  "contract_version": "living-town-world-contract-v1",
+  "layout": {
+    "id": "living-town-block-v1",
+    "bounds": { "min_x": 0, "max_x": 15, "min_y": 0, "max_y": 9 }
+  },
+  "orientations": ["N", "E", "S", "W", "NE", "NW", "SE", "SW"],
+  "assets": {
+    "residential_a":              { "category": "building",       "footprint": { "w": 2, "h": 2 }, "occupancy": "solid", "placeable": true },
+    "residential_b":              { "category": "building",       "footprint": { "w": 2, "h": 2 }, "occupancy": "solid", "placeable": true },
+    "convenience_store":          { "category": "building",       "footprint": { "w": 2, "h": 1 }, "occupancy": "solid", "placeable": true },
+    "cafe":                       { "category": "building",       "footprint": { "w": 1, "h": 1 }, "occupancy": "solid", "placeable": true },
+
+    "road_straight":              { "category": "infrastructure", "footprint": { "w": 1, "h": 1 }, "occupancy": "flat",  "placeable": false },
+    "road_corner":                { "category": "infrastructure", "footprint": { "w": 1, "h": 1 }, "occupancy": "flat",  "placeable": false },
+    "sidewalk":                   { "category": "infrastructure", "footprint": { "w": 1, "h": 1 }, "occupancy": "flat",  "placeable": false },
+    "crosswalk":                  { "category": "infrastructure", "footprint": { "w": 1, "h": 1 }, "occupancy": "flat",  "placeable": false },
+    "bridge":                     { "category": "infrastructure", "footprint": { "w": 2, "h": 1 }, "occupancy": "flat",  "placeable": false },
+    "water":                      { "category": "infrastructure", "footprint": { "w": 1, "h": 1 }, "occupancy": "flat",  "placeable": false },
+    "green_patch":                { "category": "infrastructure", "footprint": { "w": 1, "h": 1 }, "occupancy": "flat",  "placeable": false },
+
+    "street_light":               { "category": "furniture",      "footprint": { "w": 1, "h": 1 }, "occupancy": "solid", "placeable": false },
+    "bench":                      { "category": "furniture",      "footprint": { "w": 1, "h": 1 }, "occupancy": "solid", "placeable": false },
+    "vending_machine":            { "category": "furniture",      "footprint": { "w": 1, "h": 1 }, "occupancy": "solid", "placeable": false },
+    "bicycle_rack":               { "category": "furniture",      "footprint": { "w": 1, "h": 1 }, "occupancy": "solid", "placeable": false },
+    "bus_stop":                   { "category": "furniture",      "footprint": { "w": 1, "h": 1 }, "occupancy": "solid", "placeable": false },
+
+    "tree":                       { "category": "nature",         "footprint": { "w": 1, "h": 1 }, "occupancy": "solid", "placeable": false },
+    "shrub":                      { "category": "nature",         "footprint": { "w": 1, "h": 1 }, "occupancy": "solid", "placeable": false },
+    "planter":                    { "category": "nature",         "footprint": { "w": 1, "h": 1 }, "occupancy": "solid", "placeable": false },
+
+    "pedestrian":                 { "category": "living",         "footprint": { "w": 1, "h": 1 }, "occupancy": "solid", "placeable": false },
+    "bicycle":                    { "category": "living",         "footprint": { "w": 1, "h": 1 }, "occupancy": "solid", "placeable": false },
+    "car":                        { "category": "living",         "footprint": { "w": 1, "h": 1 }, "occupancy": "solid", "placeable": false },
+
+    "external_connection_anchor": { "category": "special",        "footprint": { "w": 2, "h": 1 }, "occupancy": "solid", "placeable": false },
+    "variable_lot":               { "category": "special",        "footprint": { "w": 2, "h": 2 }, "occupancy": "solid", "placeable": false }
+  },
+  "placeable_categories": ["building"],
+  "static_solid_cells": [
+    [0, 0], [0, 2], [0, 4], [2, 0], [2, 4], [2, 5], [2, 8], [3, 4],
+    [3, 7], [3, 9], [4, 1], [4, 8], [5, 9], [6, 0], [6, 1], [6, 4],
+    [6, 5], [6, 8], [7, 0], [7, 1], [7, 9], [8, 3], [8, 4], [8, 5],
+    [8, 8], [9, 1], [9, 7], [10, 2], [10, 5], [10, 9], [11, 1], [11, 2],
+    [11, 4], [11, 8], [14, 6], [14, 8], [15, 2], [15, 6]
+  ],
+  "seed_buildings": [
+    {
+      "building_id": "5513ac64-2727-4f4f-9e9e-44441076de27",
+      "legacy_object_id": "residential-a",
+      "asset_id": "residential_a",
+      "grid_x": 1,
+      "grid_y": 2,
+      "orientation": "S"
+    },
+    {
+      "building_id": "0deb488a-6d16-4c95-b245-7ff945b77402",
+      "legacy_object_id": "residential-b",
+      "asset_id": "residential_b",
+      "grid_x": 4,
+      "grid_y": 3,
+      "orientation": "S"
+    },
+    {
+      "building_id": "45a22d48-57c5-4d02-95c3-517d1c36957c",
+      "legacy_object_id": "cafe",
+      "asset_id": "cafe",
+      "grid_x": 11,
+      "grid_y": 3,
+      "orientation": "S"
+    },
+    {
+      "building_id": "ea217128-8498-491b-b025-42e8653f387d",
+      "legacy_object_id": "convenience-store",
+      "asset_id": "convenience_store",
+      "grid_x": 9,
+      "grid_y": 4,
+      "orientation": "S"
+    }
+  ],
+  "life_scenes": [
+    "HOME",
+    "COMMUTE",
+    "DINING_SOCIAL",
+    "FAMILY",
+    "DAILY_CONVENIENCE",
+    "LEARNING",
+    "HEALTH",
+    "LEISURE",
+    "CONSTRUCTION_PROJECT",
+    "INVESTMENT",
+    "OTHER"
+  ]
+}

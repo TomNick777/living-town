@@ -1,0 +1,73 @@
+{
+  "period": { "month": "2026-03", "start": "2026-03-01", "end": "2026-03-31", "days_in_period": 31 },
+  "projection_version": "living-town-v1",
+  "generated_at": "2026-04-01T02:00:00+00:00",
+  "financial": {
+    "external_income_minor": 2600000,
+    "life_consumption_minor": 760000,
+    "energy_return_minor": 10000,
+    "net_life_consumption_minor": 750000,
+    "investment_export_minor": 1300000,
+    "investment_export_count": 4,
+    "investment_import_minor": 200000,
+    "net_storage_change_minor": 600000,
+    "internal_transfer_minor": 150000,
+    "transfer_fee_minor": 0,
+    "unreconciled_minor": 0,
+    "identity_delta_minor": 0,
+    "balanced": true
+  },
+  "state": {
+    "vitality": { "score": 0.46, "band": "QUIET" },
+    "stability": { "score": 0.979, "band": "SOLID" },
+    "consumption_pressure": { "score": 0.2885, "band": "LOW" },
+    "saving_strength": { "score": 0.7692, "band": "STRONG" },
+    "investment_outflow": { "score": 1.0, "band": "STRONG" },
+    "data_health": { "score": 1.0, "band": "HEALTHY" }
+  },
+  "scenes": {
+    "HOME": { "scene": "HOME", "transaction_count": 3, "amount_minor": 640000, "share_of_consumption": 0.8421, "active_days": 3, "trend_vs_previous_period": "FLAT", "previous_amount_minor": 640000 },
+    "DAILY_CONVENIENCE": { "scene": "DAILY_CONVENIENCE", "transaction_count": 7, "amount_minor": 120000, "share_of_consumption": 0.1579, "active_days": 4, "trend_vs_previous_period": "DOWN", "previous_amount_minor": 210000 },
+    "INVESTMENT": { "scene": "INVESTMENT", "transaction_count": 4, "amount_minor": 1300000, "share_of_consumption": null, "active_days": 4, "trend_vs_previous_period": "UP", "previous_amount_minor": 600000 }
+  },
+  "unresolved": { "transfer_legs": 0, "refunds": 0, "unknown_transactions": 0, "energy_unknown_count": 0, "unreconciled_minor": 0 },
+  "projects": [],
+  "explanations": [
+    { "metric": "vitality", "value": 0.46, "band": "QUIET", "rules_version": "town-rules-v1", "factors": [
+      { "name": "active_day_coverage", "value": 0.3, "detail": "active_days=6/31, target=20" },
+      { "name": "scene_breadth", "value": 0.3333, "detail": "distinct_life_scenes=2, target=6" },
+      { "name": "continuity", "value": 0.7, "detail": "longest_inactive_streak=13d, allowance=10d" },
+      { "name": "income_present", "value": 1.0, "detail": "external income present in period" },
+      { "name": "amounts_involved", "value": 0, "detail": "spending amounts are structurally excluded from vitality" }
+    ] },
+    { "metric": "stability", "value": 0.979, "band": "SOLID", "rules_version": "town-rules-v1", "factors": [
+      { "name": "income_present", "value": 1.0, "detail": "external_income=2600000" },
+      { "name": "positive_storage", "value": 1.0, "detail": "net_storage_change=600000" },
+      { "name": "budget_balance", "value": 1.0, "detail": "net_consumption=750000, income=2600000" },
+      { "name": "unreconciled_ratio", "value": 0, "detail": "unreconciled=0, flow=4660000" },
+      { "name": "extreme_outlier", "value": 0.79, "detail": "largest_single_consumption=640000, consumption_count=10, concentration=0.8421" }
+    ] },
+    { "metric": "consumption_pressure", "value": 0.2885, "band": "LOW", "rules_version": "town-rules-v1", "factors": [
+      { "name": "net_life_consumption_minor", "value": 750000, "detail": "gross=760000, returned=10000" },
+      { "name": "external_income_minor", "value": 2600000, "detail": "" },
+      { "name": "consumption_to_income_ratio", "value": 0.2885, "detail": "score = clamp(ratio, 0, 1)" },
+      { "name": "largest_single_share", "value": 0.8421, "detail": "largest_single_consumption=640000; disclosure only: one-off events do not change the score" }
+    ] },
+    { "metric": "saving_strength", "value": 0.7692, "band": "STRONG", "rules_version": "town-rules-v1", "factors": [
+      { "name": "net_storage_change_minor", "value": 600000, "detail": "signed cash-system net flow" },
+      { "name": "external_income_minor", "value": 2600000, "detail": "" },
+      { "name": "storage_rate", "value": 0.2308, "detail": "score = clamp(rate / 0.3, 0, 1)" }
+    ] },
+    { "metric": "investment_outflow", "value": 1.0, "band": "STRONG", "rules_version": "town-rules-v1", "factors": [
+      { "name": "investment_export_minor", "value": 1300000, "detail": "ENERGY_EXPORT volume" },
+      { "name": "investment_export_count", "value": 4, "detail": "" },
+      { "name": "investment_import_minor", "value": 200000, "detail": "context: capital flowing back (not part of this score)" },
+      { "name": "export_to_income_ratio", "value": 0.5, "detail": "score = clamp(ratio / 0.5, 0, 1)" }
+    ] },
+    { "metric": "data_health", "value": 1.0, "band": "HEALTHY", "rules_version": "town-rules-v1", "factors": [
+      { "name": "unresolved_flag_ratio", "value": 0.0, "detail": "flags=0 (legs=0, refunds=0, unknown=0) / transactions=16" },
+      { "name": "unreconciled_amount_ratio", "value": 0.0, "detail": "unreconciled=0, flow=4660000" },
+      { "name": "balanced", "value": 1.0, "detail": "energy identity holds" }
+    ] }
+  ]
+}

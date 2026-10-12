@@ -1,0 +1,28 @@
+/* Development-only density HUD. Not part of the production town chrome. */
+.visual-qa-hud {
+  position: absolute;
+  top: 22px;
+  left: 24px;
+  z-index: 4;
+  max-width: 340px;
+  padding: 10px 12px;
+  border-radius: 8px;
+  background: #1f2a28e6;
+  color: #e7f3ee;
+  font-size: 11px;
+  line-height: 1.55;
+  pointer-events: none;
+  letter-spacing: 0.02em;
+}
+.visual-qa-hud strong {
+  display: block;
+  font-size: 10px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: #9ad7c4;
+}
+.visual-qa-hud span {
+  display: block;
+  margin-top: 3px;
+  color: #d5e4de;
+}
