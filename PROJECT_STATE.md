@@ -35,6 +35,19 @@ Transfers, refunds, investments and unresolved facts retain their semantics.
 - Added GitHub Actions verification and Pages deployment. Deployment status must
   be checked separately; a local build is not proof of online publication.
 
+## Published — 2026-10-12
+
+- Public MIT repository: https://github.com/TomNick777/living-town
+- Live site: https://tomnick777.github.io/living-town/
+- Initial release source: `2f422e0`; clean worktree after push.
+- GitHub Actions run `38224206288` completed successfully, including verification
+  and Pages deployment: https://github.com/TomNick777/living-town/actions/runs/38224206288
+- Live HTML and demo JSON returned HTTP 200. The published six-month synthetic
+  bundle SHA-256 matched the audited source snapshot exactly.
+- Browser behavior was verified locally against the same production build and
+  repository subpath. Online browser navigation timed out in the automation
+  environment; direct HTTP verification and deployment checks succeeded.
+
 ## Fresh verification
 
 | Check | Result |
